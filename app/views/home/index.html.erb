@@ -1,20 +1,52 @@
-
+<div>
+<h1>이곳에 글을 써주세요!</h1>
+<form action="/home/create" method="post">
+    <p>제목</p> 
+    <input type="text" name="input_title">
+    <p>내용</p>
+    <textarea name="input_content"></textarea>
+    <br>
+   <input type="submit" value="Submit">
+</form>
+                        
                         <!-- 이 곳에 게시판 글을 쓸 수 있는 form을 만드세요 -->
                         <!-- textarea와 파일 첨부를 할 수 있도록 하면 됩니다! --> 
                         
                         
-                        
-                        
-                        
-                        
+                
                         <!-- 이 곳에 게시판 글을 쓸 수 있는 form을 만드세요 끝!-->
-                        </div>
+
+
+
+                        
+                        
+
+</div>
+
+
                         
                         
                     <!-- 이 곳에 게시글과 댓글을 출력하는 내용을 입력하세요 -->
                       
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                            <h1>지금까지 작성된 post들 입니다.</h1>
+
+                    <% @posts.each do |post| %>
+                    <h3><a href="/home/show/<%= post.id %>">제목: <%= post.title %><hr</a></h3>
+                    <h4>내용: <%= post.content %></h4>
+                    <br>
+                    [댓글]
+                    <% @comments.each do |comment| %>
+                        <p><%= comment.content %></p>
+                    <% end %>
+                    <form action='/comments/create' method='post'>
+                        <input type="text" name="input_comment">
+                        <input type="submit">
+                    <br>    
+                    </form>              
+                    <% end %>                        
+
                              <%#원하시면 한번 몇분전에 작성한 글인지 해보세요!%> 
                         </div>
                         <div class="panel-body">
@@ -25,12 +57,12 @@
 
                             <!-- 댓글을 작성할 수 있는 form을 만드세요 --> 
 
-
+                    
+                        
 
                             <!-- 댓글을 작성할 수 있는 form을 만드세요 끝!-->
                             <hr>
                             <% # 리플 출력 시작%>
-                            
                             
                             
                             <% # 리플 출력 끝 %>

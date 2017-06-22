@@ -1,0 +1,9 @@
+<h1><%= @post.id %>번 포스트를 입력할 화면 입니다.</h1>
+<form action="/home/update/<%= @post.id %>" method='post'>
+    <p>제목</p> 
+    <input type="text" name="input_title">
+    <p>내용</p>
+    <textarea name="input_content"></textarea>
+    <br>
+   <input type="submit" value="Submit">
+</form>
